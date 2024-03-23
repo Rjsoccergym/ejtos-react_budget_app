@@ -99,6 +99,10 @@ export const AppProvider = (props) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
     let remaining = 0;
 
+    const totalExpenses = state.expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
+
     if (state.expenses) {
             const totalExpenses = state.expenses.reduce((total, item) => {
             return (total = total + item.cost);
@@ -113,7 +117,8 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
+                totalExpenses: totalExpenses
             }}
         >
             {props.children}

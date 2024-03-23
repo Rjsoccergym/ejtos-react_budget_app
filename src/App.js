@@ -4,41 +4,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Code to import Budget.js
 import Budget from './components/Budget';
+import Remaining from './components/Remaining';
+import ExpenseTotal from './components/ExpenseTotal';
+import ExpenseList from './components/ExpenseList';
+import AllocationForm from './components/AllocationForm';
 
 // Add code to import the other components here under
 
 
 import { AppProvider } from './context/AppContext';
+import Currency from './components/Currency';
 const App = () => {
     return (
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                     <div className='row mt-3'>
-                        {
-                            /* Add Budget component here */
-                        }        
-
-                        {
-                            /* Add Remaining component here*/
-                        }        
-
-                        {
-                            /* Add ExpenseTotal component here */
-                        }        
-                       
-                        {
-                            /* Add ExpenseList component here */
-                        }         
-
-                        {
-                            /* Add ExpenseItem component here */
-                        }        
-
-                        {
-                            /* Add AllocationForm component here under */
-                        }        
-
+                        <div className='col-sm'>
+                            <Budget/>
+                        </div>
+                        <div className='col-sm'>
+                            <Remaining/>
+                        </div>  
+                        <div className='col-sm'>
+                            <ExpenseTotal/>
+                        </div>
+                        <div className='col-sm'>
+                            <Currency/>
+                        </div>
+                        <h3 className='mt-1'>Allocation</h3>
+                        <div className='row'>
+                            <div className='col-sm'>
+                                <ExpenseList/>
+                            </div>
+                        </div>
+                        <h3 className='mt-1'>Change Allocation</h3>
+                        <div className='row mt-3'>
+                            <div className='col-sm mb-3'>
+                                <AllocationForm/>
+                            </div>
+                        </div>
                 </div>
             </div>
         </AppProvider>
